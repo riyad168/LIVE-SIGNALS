@@ -58,30 +58,25 @@
     .live-put  { background-color: #dc2626; color: white; }
 
     /* RGB gradient text for dropdown options */
-    #marketDropdown option, #timeframeSelect option {
-      background-color: transparent !important;
-      color: white !important;
+    #marketDropdown option {
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-weight: bold;
     }
 
     /* For Firefox */
-    #marketDropdown option::-moz-focus-inner,
-    #timeframeSelect option::-moz-focus-inner {
+    #marketDropdown option::-moz-focus-inner {
       border: 0;
     }
 
     /* Dropdown container styling */
-    #marketDropdown, #timeframeSelect {
-      background-color: transparent !important;
-      color: white !important;
+    #marketDropdown {
+      /* fallback background */
+      background-color: transparent;
+      color: white;
       font-weight: bold;
-      border: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      padding-right: 2.5rem; /* For arrow space */
     }
-
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans min-h-screen flex flex-col items-center justify-center p-6">
@@ -143,7 +138,7 @@
       }
     }
     const realMarketOptions = ["EURUSD","GBPUSD","USDJPY"];
-    const otcMarketOptions  = ["USD/MXN-otc","USD/PHP-otc","USD/BDT-otc""USD/INT-otc","NZD/CHF-otc"];
+    const otcMarketOptions  = ["USD/MXN-otc","USD/PHP-otc","USD/INR-otc"];
     const otcToggle = document.getElementById("otcToggle");
     function updateMarketDropdown() {
       const sel = document.getElementById("marketDropdown");
